@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),  # 장고에서 admin/으로 시작하는 모든 url을 view와 대조해 찾아냄
+    path('', include('blog.urls')),   # blog.urls를 가져오는 행 include 함수가 필요, 모든 접속 요청을 blog.urls로 전송
 ]
